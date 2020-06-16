@@ -6,7 +6,7 @@ volumes:
 services:
   nginx:
     image: nginx:alpine
-    container_name: nz01
+    container_name: nz011
     ports:
       - "80:80"
       
@@ -21,15 +21,15 @@ services:
     
   web:
     build:
-        context: .
-        dockerfile: compose/django/Dockerfile
-    container_name: dz01
+      context: .
+      dockerfile: compose/django/Dockerfile
+    container_name: dz011
     depends_on:
       - db
     volumes:
       - ./src:/src
-    expose:
-      - "8000"
+    ports:
+      - "8000:8000"
     networks:
       - djangonetwork
 
